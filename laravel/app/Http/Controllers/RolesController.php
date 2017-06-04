@@ -55,15 +55,5 @@ class RolesController extends Controller
         return view("roles", ['users'=>$users]);
     }
     
-    public function delete($id){
-        $news = News::find($id);
-        return view('news.delete')->withNews( $news);
-    }
-    public function destroy($id){
-        $news = News::find($id);
-        $news_id= $news->id;
-        $news->delete();
-        Session::flash('success','the news was deleted');
-        return redirect()->route('news.show',  $news_id);
-    }
+    
 }
